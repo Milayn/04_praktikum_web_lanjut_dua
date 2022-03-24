@@ -11,8 +11,8 @@ class PegawaiController extends Controller
 {
     public function index()
     {
-    	// mengambil data pegawai yang di namanya ada huruf a 
-        $pegawai = Pegawai::where('nama', 'like' , '%a%')->get();
+        // menampilkan 10 data pegawai per halaman
+        $pegawai = Pegawai::paginate(10);
     	// mengirim data pegawai ke view pegawai
     	return view('pegawai', ['pegawai' => $pegawai]);
     }
